@@ -1,0 +1,6 @@
+app/node_modules
+.idea/
+app/data
+.DC_Store
+node_modules
+
