@@ -143,12 +143,8 @@ sudo curl -O https://portal.socketxp.com/download/darwin/socketxp && chmod 777 s
 socketxp login "authentication_token_goes_here"
 socketxp connect http://localhost:8080
 Connected.
-Public URL -> https://naistangz-z012h3op.socketxp.com
 ```
----
-2. On Github, navigate to your [repository](https://github.com/naistangz/Docker_Jenkins_Pipeline/tree/development) -> Go to `Settings` -> `Webhooks` -> in Payload URL, enter Jenkins URL e.g:
-```bash
-http://naistangz-z012h3op.socketxp.com/github-webhook/
+
 ```
 -> Enable `SSL verification` -> `Update webhook` -> `Redeliver`
 
@@ -167,7 +163,7 @@ npm test
 Once our CI build is successful, create another build on Jenkins which will listen to the CI build which we named `Docker_Pipeline_Integration_Test` and automatically build a Docker image if it successfully passed the tests and merges the code to the master branch. 
 1. Make sure `docker pipeline plugin` is installed
 2. Create a [Dockerhub](https://hub.docker.com/) account
-3. Once logged in, click on `Create` -> `Create Repository` -> Type in a name for your Docker repository e.g `naistangz/docker_automation`
+3. Once logged in, click on `Create` -> `Create Repository` -> Type in a name for your Docker repository
 4. After the Docker repository has been created, go back to Jenkins and navigate to `Credentials` -> `System` -> `Global Credentials` -> `Add Credentials`
 5. Enter your Dockerhub credentials e.g
     - **Kind** -> `Username with password`
@@ -192,7 +188,7 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/naistangz/Docker_Jenkins_Pipeline'
+        git 'https://github.com/NidamanuriRahulKumar/Docker_Jenkins_Pipeline'
       }
     }
     stage('Building image') {
@@ -233,7 +229,7 @@ Jenkins will clone a git repository that has a Dockerfile inside
 ```bash
 stage('Cloning Git') {
       steps {
-        git 'https://github.com/naistangz/Docker_Jenkins_Pipeline'
+        git 'https://github.com/NidamanuriRahulKumar/Docker_Jenkins_Pipeline'
       }
     }
 ```
